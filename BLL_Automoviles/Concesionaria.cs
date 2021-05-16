@@ -8,59 +8,61 @@ namespace BLL_Automoviles
 {
     public class Concesionaria
     {
-        private List<Vehiculo> _vehiculos = new List<Vehiculo>();
-        private List<Categoria> _categorias = new List<Categoria>();
+        private List<Automovil> _automovil = new List<Automovil>();
+        private List<Camioneta> _camioneta = new List<Camioneta>();
 
-        public List<Vehiculo> Vehiculos
+        public List<Automovil> Automovil
         {
-            get { return _vehiculos; }
-            set { _vehiculos = value; }
+            get { return _automovil; }
+            set { _automovil = value; }
         }
-        public List<Vehiculo> VehiculosDisponibles()
+        public List<Automovil> AutomovilesDisponibles()
         {
-            Vehiculo objveh1 = new Vehiculo();
-            Vehiculo objveh2 = new Vehiculo();
-            Vehiculo objveh3 = new Vehiculo();
-            objveh1.Marca = "Ford";
-            objveh2.Marca = "Ford";
-            objveh3.Marca = "Audi";
-            objveh1.Modelo = "Focus";
-            objveh2.Modelo = "Ranger";
-            objveh3.Modelo = "A3";
-            objveh1.Categoria.Nombre = "Automovil";
-            objveh1.Categoria.Nombre = "Camioneta";
-            objveh1.Categoria.Nombre = "Automovil";
-            objveh1.VelMax = 218;
-            objveh2.VelMax = 170;
-            objveh3.VelMax = 202;
-            objveh1.KmRecorridos = 0;
-            objveh2.KmRecorridos = 12000;
-            objveh3.KmRecorridos = 6450;
-            objveh1.Tanque = 43.2f;
-            objveh2.Tanque = 55;
-            objveh3.Tanque = 34.8f;
+            Automovil objauto1 = new Automovil();
+            Automovil objauto3 = new Automovil();
 
-            this.Vehiculos.Add(objveh1);
-            this.Vehiculos.Add(objveh2);
-            this.Vehiculos.Add(objveh3);
+            objauto1.Categoria = "Automovil";
+            objauto1.Modelo = "Ford Focus";
+            objauto1.VelMax = 218;
+            objauto1.KmRecorridos = 0;
+            objauto1.Tanque = 43.2f;
 
-            return this.Vehiculos;
+            objauto3.Modelo = "Audi A3";
+            objauto3.VelMax = 202;
+            objauto3.KmRecorridos = 6450;
+            objauto3.Tanque = 34.8f;
+
+            this.Automovil.Add(objauto1);
+            this.Automovil.Add(objauto3);
+
+            return this.Automovil;
         }
 
-        protected List<Categoria> Categorias
+        protected List<Camioneta> Camionetas
         {
-            get { return _categorias; }
-            set { _categorias = value; }
+            get { return _camioneta; }
+            set { _camioneta = value; }
         }
-        public List<Categoria> CategoriasDisponibles()
+        public List<Camioneta> CamionetasDisponibles()
         {
             Camioneta objCamioneta = new Camioneta();
-            Automovil objAutomovil = new Automovil();
 
-            this.Categorias.Add(objCamioneta);
-            this.Categorias.Add(objAutomovil);
+            objCamioneta.Modelo = "Ford Ranger";
+            objCamioneta.VelMax = 170;
+            objCamioneta.KmRecorridos = 12000;
+            objCamioneta.Tanque = 55;
 
-            return this.Categorias;
+
+            this.Camionetas.Add(objCamioneta);
+
+            return this.Camionetas;
+        }
+        public string CalcularPrecio() 
+        {
+            float precioFinal = 0;
+            string precio = string.Empty;
+
+            return precio;
         }
     }
 }

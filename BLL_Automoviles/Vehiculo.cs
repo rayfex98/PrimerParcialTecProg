@@ -6,31 +6,25 @@ using System.Threading.Tasks;
 
 namespace BLL_Automoviles
 {
-    public class Vehiculo
+    public abstract class Vehiculo
     {
-        private string _Marca;
-        private string _Modelo;
-        private Categoria _categoria;
-        //private Mejoras _mejoras;
+        private string _categoria;
+        private string _modelo; //TODO: Separar en marca y modelo
+        //private Mejoras _mejoras; a futuro podria guardar las mejoras del vehiculo a comprar
         private int _velMax;
         private float _kmRecorridos;
         private float _capacidadTanque;
 
         
-        public Categoria Categoria
+        public string Categoria
         {
             get { return _categoria; }
             set { _categoria = value; }
         }
-        public string Marca
-        {
-            get { return _Marca; }
-            set { _Marca = value; }
-        }
         public string Modelo
         {
-            get { return _Modelo; }
-            set { _Modelo = value; }
+            get { return _modelo; }
+            set { _modelo = value; }
         }
         /*public Mejoras Mejoras
         {
@@ -52,5 +46,7 @@ namespace BLL_Automoviles
             get { return _velMax; }
             set { _velMax = value; }
         }
+
+        public abstract float DevolverPrecio();
     }
 }

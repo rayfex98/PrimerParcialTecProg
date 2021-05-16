@@ -2,7 +2,7 @@
 
 namespace BLL_Automoviles
 {
-    public class Automovil : Categoria
+    public class Automovil : Vehiculo
     {
         public override float DevolverPrecio()
         {
@@ -10,7 +10,7 @@ namespace BLL_Automoviles
         }
         public Automovil()
         {
-            this.Nombre = "Automovil";
+            this.Categoria = "Automovil";
         }
     }
 }

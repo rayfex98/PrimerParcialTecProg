@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BLL_Automoviles
 {
-    public class Camioneta : Categoria
+    public class Camioneta : Vehiculo
     {
         public override float DevolverPrecio()
         {
@@ -14,7 +14,7 @@ namespace BLL_Automoviles
         }
         public Camioneta()
         {
-            this.Nombre = "Camioneta";
+            this.Categoria = "Camioneta";
         }
     }
 }
