@@ -6,21 +6,18 @@ using System.Threading.Tasks;
 
 namespace BLL_Automoviles
 {
-    public abstract class Vehiculo
+    public class Vehiculo
     {
-        private string _categoria;
+        
         private string _modelo; //TODO: Separar en marca y modelo
         private Mejoras _mejoras;
+        private Categoria _categoria;
         private float _velMax;
         private float _kmRecorridos;
         private float _capacidadTanque;
 
+
         
-        public string Categoria
-        {
-            get { return _categoria; }
-            set { _categoria = value; }
-        }
         public string Modelo
         {
             get { return _modelo; }
@@ -30,6 +27,11 @@ namespace BLL_Automoviles
         {
             get { return _mejoras; }
             set { _mejoras = value; }
+        }
+        public Categoria Categoria
+        {
+            get { return _categoria; }
+            set { _categoria = value; }
         }
         public float Tanque
         {
@@ -46,8 +48,6 @@ namespace BLL_Automoviles
             get { return _velMax; }
             set { _velMax = value; }
         }
-
-        public abstract float DevolverPrecio(float _cotizacion);
 
         public float ARGVelMax()
         {

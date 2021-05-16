@@ -49,12 +49,12 @@ namespace Form_Automoviles
             this.label6 = new System.Windows.Forms.Label();
             this.rbtnAutomovil = new System.Windows.Forms.RadioButton();
             this.rbtnCamioneta = new System.Windows.Forms.RadioButton();
-            this.btnCaracteristicas = new System.Windows.Forms.Button();
-            this.cmboxCamionetas = new System.Windows.Forms.ComboBox();
+            this.btnAgregar = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.tboxCotizador = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
+            this.cmboxCamionetas = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVeh)).BeginInit();
             this.SuspendLayout();
             // 
@@ -112,9 +112,9 @@ namespace Form_Automoviles
             // 
             this.cmboxAutomoviles.Enabled = false;
             this.cmboxAutomoviles.FormattingEnabled = true;
-            this.cmboxAutomoviles.Location = new System.Drawing.Point(240, 74);
+            this.cmboxAutomoviles.Location = new System.Drawing.Point(38, 100);
             this.cmboxAutomoviles.Name = "cmboxAutomoviles";
-            this.cmboxAutomoviles.Size = new System.Drawing.Size(202, 23);
+            this.cmboxAutomoviles.Size = new System.Drawing.Size(208, 23);
             this.cmboxAutomoviles.TabIndex = 5;
             this.cmboxAutomoviles.Text = "Modelos";
             // 
@@ -231,7 +231,7 @@ namespace Form_Automoviles
             // rbtnCamioneta
             // 
             this.rbtnCamioneta.AutoSize = true;
-            this.rbtnCamioneta.Location = new System.Drawing.Point(39, 124);
+            this.rbtnCamioneta.Location = new System.Drawing.Point(286, 75);
             this.rbtnCamioneta.Name = "rbtnCamioneta";
             this.rbtnCamioneta.Size = new System.Drawing.Size(88, 19);
             this.rbtnCamioneta.TabIndex = 15;
@@ -240,24 +240,15 @@ namespace Form_Automoviles
             this.rbtnCamioneta.UseVisualStyleBackColor = true;
             this.rbtnCamioneta.CheckedChanged += new System.EventHandler(this.rbtnCamioneta_CheckedChanged);
             // 
-            // btnCaracteristicas
+            // btnAgregar
             // 
-            this.btnCaracteristicas.Location = new System.Drawing.Point(39, 177);
-            this.btnCaracteristicas.Name = "btnCaracteristicas";
-            this.btnCaracteristicas.Size = new System.Drawing.Size(116, 23);
-            this.btnCaracteristicas.TabIndex = 16;
-            this.btnCaracteristicas.Text = "Agregar a grilla";
-            this.btnCaracteristicas.UseVisualStyleBackColor = true;
-            this.btnCaracteristicas.Click += new System.EventHandler(this.btnCaracteristicas_Click);
-            // 
-            // cmboxCamionetas
-            // 
-            this.cmboxCamionetas.FormattingEnabled = true;
-            this.cmboxCamionetas.Location = new System.Drawing.Point(240, 123);
-            this.cmboxCamionetas.Name = "cmboxCamionetas";
-            this.cmboxCamionetas.Size = new System.Drawing.Size(202, 23);
-            this.cmboxCamionetas.TabIndex = 17;
-            this.cmboxCamionetas.Text = "Modelos";
+            this.btnAgregar.Location = new System.Drawing.Point(39, 177);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(116, 23);
+            this.btnAgregar.TabIndex = 16;
+            this.btnAgregar.Text = "Agregar a grilla";
+            this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnCaracteristicas_Click);
             // 
             // label7
             // 
@@ -271,7 +262,7 @@ namespace Form_Automoviles
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(133, 126);
+            this.label8.Location = new System.Drawing.Point(380, 77);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(52, 15);
             this.label8.TabIndex = 19;
@@ -294,17 +285,26 @@ namespace Form_Automoviles
             this.label9.TabIndex = 21;
             this.label9.Text = "Cotizacion Dolar";
             // 
+            // cmboxCamionetas
+            // 
+            this.cmboxCamionetas.FormattingEnabled = true;
+            this.cmboxCamionetas.Location = new System.Drawing.Point(286, 99);
+            this.cmboxCamionetas.Name = "cmboxCamionetas";
+            this.cmboxCamionetas.Size = new System.Drawing.Size(196, 23);
+            this.cmboxCamionetas.TabIndex = 22;
+            this.cmboxCamionetas.Text = "Modelos";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(741, 557);
+            this.Controls.Add(this.cmboxCamionetas);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.tboxCotizador);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.cmboxCamionetas);
-            this.Controls.Add(this.btnCaracteristicas);
+            this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.rbtnCamioneta);
             this.Controls.Add(this.rbtnAutomovil);
             this.Controls.Add(this.label6);
@@ -348,8 +348,7 @@ namespace Form_Automoviles
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.RadioButton rbtnAutomovil;
         private System.Windows.Forms.RadioButton rbtnCamioneta;
-        private System.Windows.Forms.Button btnCaracteristicas;
-        private System.Windows.Forms.ComboBox cmboxCamionetas;
+        private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DataGridViewTextBoxColumn Modelo;
@@ -358,6 +357,7 @@ namespace Form_Automoviles
         private System.Windows.Forms.DataGridViewTextBoxColumn Tanque;
         private System.Windows.Forms.TextBox tboxCotizador;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ComboBox cmboxCamionetas;
     }
 }
 
