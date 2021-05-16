@@ -10,8 +10,8 @@ namespace BLL_Automoviles
     {
         private string _categoria;
         private string _modelo; //TODO: Separar en marca y modelo
-        //private Mejoras _mejoras; a futuro podria guardar las mejoras del vehiculo a comprar
-        private int _velMax;
+        private Mejoras _mejoras;
+        private float _velMax;
         private float _kmRecorridos;
         private float _capacidadTanque;
 
@@ -26,11 +26,11 @@ namespace BLL_Automoviles
             get { return _modelo; }
             set { _modelo = value; }
         }
-        /*public Mejoras Mejoras
+        public Mejoras Mejora
         {
             get { return _mejoras; }
             set { _mejoras = value; }
-        }*/
+        }
         public float Tanque
         {
             get { return _capacidadTanque; }
@@ -41,12 +41,25 @@ namespace BLL_Automoviles
             get { return _kmRecorridos; }
             set { _kmRecorridos = value; }
         }
-        public int VelMax
+        public float VelMax
         {
             get { return _velMax; }
             set { _velMax = value; }
         }
 
-        public abstract float DevolverPrecio();
+        public abstract float DevolverPrecio(float _cotizacion);
+
+        public float ARGVelMax()
+        {
+            return _velMax * 1.609f;
+        }
+        public float ARGDistancia()
+        {
+            return _kmRecorridos * 1.609f;
+        }
+        public float ARGTanque()
+        {
+            return _capacidadTanque * 3.78f;
+        }
     }
 }

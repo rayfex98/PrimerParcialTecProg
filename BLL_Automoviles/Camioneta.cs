@@ -8,9 +8,9 @@ namespace BLL_Automoviles
 {
     public class Camioneta : Vehiculo
     {
-        public override float DevolverPrecio()
+        public override float DevolverPrecio(float cotizacion)
         {
-            return 150000;
+            return 150000 * cotizacion;
         }
         public Camioneta()
         {

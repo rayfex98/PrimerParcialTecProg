@@ -8,35 +8,41 @@ namespace BLL_Automoviles
 {
     public class Mejoras
     {
-        private int _softUpdate = 1500;
-        private int _alarma = 5000;
-        private int _vidrio = 1500;
-        private int _baliza = 1000;
-        private int _luzNeon = 7500;
+        private float _softUpdate;
+        private float _alarma;
+        private float _vidrio;
+        private float _baliza;
+        private float _luzNeon;
 
-        public int SoftUPdate
+        
+        public float SoftUpdate
         {
             get { return _softUpdate; }
+            set { _softUpdate = value; }
         }
-        public int Alarma
+        public float Alarma
         {
             get { return _alarma; }
             set { _alarma = value; }
         }
-        public int Vidrio
+        public float Vidrio
         {
             get { return _vidrio; }
             set { _vidrio = value; }
         }
-        public int Baliza
+        public float Baliza
         {
             get { return _baliza; }
             set { _baliza = value; }
         }
-        public int LuzNeon
+        public float LuzNeon
         {
             get { return _luzNeon; }
             set { _luzNeon = value; }
         }
+        public float ARGSoft(float _cotizacion)
+        {
+            return _softUpdate * _cotizacion;
+        } 
     }
 }

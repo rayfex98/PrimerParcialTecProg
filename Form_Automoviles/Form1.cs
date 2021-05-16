@@ -22,48 +22,103 @@ namespace Form_Automoviles
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            cmboxVehiculos.Enabled = false;
+            cmboxAutomoviles.Enabled = false;
+            cmboxCamionetas.Enabled = false;
+            cmboxAutomoviles.DataSource = objConcesionaria.AutomovilesDisponibles();
+            cmboxAutomoviles.DisplayMember = "Modelo";
+            cmboxCamionetas.DataSource = objConcesionaria.CamionetasDisponibles();
+            cmboxCamionetas.DisplayMember = "Modelo";
         }
         private void rbtnAutomovil_CheckedChanged(object sender, EventArgs e)
         {
-            if(cmboxVehiculos.Enabled == false)
-            {
-                cmboxVehiculos.Enabled = true;
+            if (!cmboxAutomoviles.Enabled)
+            { 
+                cmboxAutomoviles.Enabled = true;
+                cmboxCamionetas.Enabled = false;
             }
-            cmboxVehiculos.Items.Clear();
-            cmboxVehiculos.DataSource = objConcesionaria.AutomovilesDisponibles();
-            cmboxVehiculos.DisplayMember = "Modelo";
         }
         private void rbtnCamioneta_CheckedChanged(object sender, EventArgs e)
         {
-            if (cmboxVehiculos.Enabled == false)
+            if (!cmboxCamionetas.Enabled)
             {
-                cmboxVehiculos.Enabled = true;
+                cmboxCamionetas.Enabled = true;
+                cmboxAutomoviles.Enabled = false;
             }
-            cmboxVehiculos.Items.Clear();
-            cmboxVehiculos.DataSource = objConcesionaria.CamionetasDisponibles();
-            cmboxVehiculos.DisplayMember = "Modelo";
         }
         private void btnCaracteristicas_Click(object sender, EventArgs e)
         {
             int n = dgvVeh.Rows.Add();
-            if (rbtnAutomovil.Checked == true)
+            if (rbtnAutomovil.Checked)
             {
                 Automovil objAuto = new Automovil();
-                objAuto = (Automovil)(cmboxVehiculos.SelectedItem);
+                objAuto = (Automovil)(cmboxAutomoviles.SelectedItem);
                 dgvVeh.Rows[n].Cells[0].Value = objAuto.Modelo;
-                dgvVeh.Rows[n].Cells[0].Value = objAuto.VelMax;
-                dgvVeh.Rows[n].Cells[0].Value = objAuto.KmRecorridos;
-                dgvVeh.Rows[n].Cells[0].Value = objAuto.Tanque;
+                dgvVeh.Rows[n].Cells[1].Value = objAuto.ARGVelMax();
+                dgvVeh.Rows[n].Cells[2].Value = objAuto.ARGDistancia();
+                dgvVeh.Rows[n].Cells[3].Value = objAuto.ARGTanque();
 
             }
-            
+            if (rbtnCamioneta.Checked)
+            {
+                Camioneta objCamioneta = new Camioneta();
+                objCamioneta = (Camioneta)(cmboxCamionetas.SelectedItem);
+                dgvVeh.Rows[n].Cells[0].Value = objCamioneta.Modelo;
+                dgvVeh.Rows[n].Cells[1].Value = objCamioneta.ARGVelMax();
+                dgvVeh.Rows[n].Cells[2].Value = objCamioneta.ARGDistancia();
+                dgvVeh.Rows[n].Cells[3].Value = objCamioneta.ARGTanque();
+
+            }
+
         }
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-        }
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
+
+        private void btnPrecio_Click(object sender, EventArgs e)
+        { 
+            Mejoras objmejora = new Mejoras();
+            float Cotizacion = float.Parse(tboxCotizador.Text); //excepcion si no ingresa valor esperado
+            objmejora = objConcesionaria.ObtenerMejoras(objmejora); //sacar objmejora
+            if (rbtnAutomovil.Checked)
+            {
+                Automovil objvehiculo = new Automovil();
+                if (cboxSoft.Checked)
+                {
+                    objvehiculo.Mejora.SoftUpdate = objmejora.ARGSoft(Cotizacion);
+                }
+                if (cboxAlarma.Checked)
+                {
+                    objvehiculo.Mejora.Alarma = objmejora.Alarma;
+                }
+                if (cboxVidrio.Checked)
+                {
+                    objvehiculo.Mejora.Vidrio = objmejora.Vidrio;
+                }
+                if (cboxBaliza.Checked)
+                {
+                    objvehiculo.Mejora.Baliza = objmejora.Baliza;
+                }
+                //objConcesionaria.CalcularPrecioAuto(objvehiculo);
+            }
+            else if(rbtnCamioneta.Checked)
+            {
+                Camioneta objvehiculo = new Camioneta();
+                if (cboxSoft.Checked)
+                {
+                    objvehiculo.Mejora.SoftUpdate = objmejora.ARGSoft(Cotizacion);
+                }
+                if (cboxAlarma.Checked)
+                {
+                    objvehiculo.Mejora.Alarma = objmejora.Alarma;
+                }
+                if (cboxVidrio.Checked)
+                {
+                    objvehiculo.Mejora.Vidrio = objmejora.Vidrio;
+                }
+                if (cboxBaliza.Checked)
+                {
+                    objvehiculo.Mejora.Baliza = objmejora.Baliza;
+                }
+            }
+
         }
     }
+        
 }

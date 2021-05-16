@@ -8,8 +8,11 @@ namespace BLL_Automoviles
 {
     public class Concesionaria
     {
+        private float _precioFinal;
         private List<Automovil> _automovil = new List<Automovil>();
         private List<Camioneta> _camioneta = new List<Camioneta>();
+        private Mejoras _mejoras;
+
 
         public List<Automovil> Automovil
         {
@@ -21,7 +24,6 @@ namespace BLL_Automoviles
             Automovil objauto1 = new Automovil();
             Automovil objauto3 = new Automovil();
 
-            objauto1.Categoria = "Automovil";
             objauto1.Modelo = "Ford Focus";
             objauto1.VelMax = 218;
             objauto1.KmRecorridos = 0;
@@ -57,9 +59,19 @@ namespace BLL_Automoviles
 
             return this.Camionetas;
         }
-        public string CalcularPrecio() 
+        public Mejoras ObtenerMejoras(Mejoras objmejora)
         {
-            float precioFinal = 0;
+            objmejora.SoftUpdate = 1500;
+            objmejora.Alarma = 5000;
+            objmejora.Vidrio = 1500;
+            objmejora.Baliza = 1000;
+            objmejora.LuzNeon = 7500;
+            return objmejora;
+        }
+        public string CalcularPrecioAuto() 
+        {
+            
+            
             string precio = string.Empty;
 
             return precio;
