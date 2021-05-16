@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using BLL_Automoviles;
 
@@ -19,6 +12,7 @@ namespace Form_Automoviles
         }
 
         private Concesionaria objConcesionaria = new Concesionaria();
+        protected Vehiculo objvehiculo = new Vehiculo();
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -31,7 +25,6 @@ namespace Form_Automoviles
         }
         private void btnCaracteristicas_Click(object sender, EventArgs e)
         {
-            Vehiculo objvehiculo = new Vehiculo();
             if (rbtnAutomovil.Checked) 
             {
                 objvehiculo = (Vehiculo)(cmboxAutomoviles.SelectedItem);
@@ -50,9 +43,42 @@ namespace Form_Automoviles
         private void btnPrecio_Click(object sender, EventArgs e)
         { 
             Mejoras objmejora = new Mejoras();
-            objmejora = objConcesionaria.ObtenerMejoras(objmejora); //sacar objmejora
-            
-
+            float cotizador = 163.35f;
+            // cotizador = (float.Parse(tboxCotizador.Text));
+            objConcesionaria.ObtenerMejoras(objmejora);
+            if (rbtnAutomovil.Checked)
+            {
+                objvehiculo = (Vehiculo)(cmboxAutomoviles.SelectedItem);
+                Automovil catAuto = new Automovil();
+                objvehiculo.Categoria = catAuto;
+            }
+            if (rbtnCamioneta.Checked)
+            {
+                objvehiculo = (Vehiculo)(cmboxCamionetas.SelectedItem);
+                Camioneta catCamioneta = new Camioneta();
+                objvehiculo.Categoria = catCamioneta;
+            }
+            if (cboxSoft.Checked)
+            {
+                objvehiculo.Mejora.SoftUpdate = objmejora.ARGSoft(cotizador);
+            }
+            if (cboxAlarma.Checked)
+            {
+                objvehiculo.Mejora.Alarma = objmejora.Alarma;
+            }
+            if (cboxVidrio.Checked)
+            {
+                objvehiculo.Mejora.Vidrio = objmejora.Vidrio;
+            }
+            if (cboxBaliza.Checked)
+            {
+                objvehiculo.Mejora.Baliza = objmejora.Baliza;
+            }
+            if (cboxNeon.Checked)
+            {
+                objvehiculo.Mejora.LuzNeon= objmejora.LuzNeon;
+            }
+            MessageBox.Show(objConcesionaria.CalcularPrecio(objvehiculo, objmejora, cotizador));
         }
         private void rbtnAutomovil_CheckedChanged(object sender, EventArgs e)
         {
