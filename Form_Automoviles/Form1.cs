@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using System.Windows.Forms;
 using BLL_Automoviles;
 
@@ -45,7 +46,7 @@ namespace Form_Automoviles
             float cotizador = 163.35f;
             Vehiculo mejorado = new Vehiculo();
             Compra objCompra = new Compra();
-            //cotizador = (float.Parse(tboxCotizador.Text));
+            cotizador = (float.Parse(tboxCotizador.Text.Trim(), CultureInfo.InvariantCulture.NumberFormat));
             if (rbtnAutomovil.Checked)
             {
                 objvehiculo = (Vehiculo)(cmboxAutomoviles.SelectedItem);
