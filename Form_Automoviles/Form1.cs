@@ -17,6 +17,7 @@ namespace Form_Automoviles
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            btnPrecio.Enabled = false;
             cmboxAutomoviles.Enabled = false;
             cmboxAutomoviles.DataSource = objConcesionaria.AutomovilesDisponibles();
             cmboxAutomoviles.DisplayMember = "Modelo";
@@ -42,11 +43,11 @@ namespace Form_Automoviles
         }
 
         private void btnPrecio_Click(object sender, EventArgs e)
-        { 
-            float cotizador = 163.35f;
+        {
+            float cotizador = 163.35f; //unirlo directo al txtbox
+            bool flag = true;
             Vehiculo mejorado = new Vehiculo();
-            Compra objCompra = new Compra();
-            cotizador = (float.Parse(tboxCotizador.Text.Trim(), CultureInfo.InvariantCulture.NumberFormat));
+            Compra objCompra = new Compra(); 
             if (rbtnAutomovil.Checked)
             {
                 objvehiculo = (Vehiculo)(cmboxAutomoviles.SelectedItem);
@@ -59,13 +60,31 @@ namespace Form_Automoviles
                 Camioneta catCamioneta = new Camioneta();
                 objvehiculo.Categoria = catCamioneta;
             }
-            objCompra.Alarmas = DevuelveAlarma();
-            objCompra.Balizas = DevuelveBaliza();
-            objCompra.Luces = DevuelveLuzNeon();
-            objCompra.Soft = DevuelveSoft(); 
-            objCompra.Vidrio = DevuelveVidrio();
-            objCompra.vehiculos = objvehiculo;
-            MessageBox.Show(objConcesionaria.CalcularPrecio(objCompra, cotizador));
+            try
+            {
+                cotizador = (float.Parse(tboxCotizador.Text.Trim(), CultureInfo.InvariantCulture.NumberFormat)); 
+                if (cotizador <= 0)
+                {
+                    MessageBox.Show("Ingrese un valor valido a la cotizacion! (numeros mayores a 0, con/sin punto decimal)");
+                    flag = false;
+                }
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Recuerde completar el cuadro de cotizacion!");
+                flag = false;
+            }
+            
+            if (flag)
+            {
+                objCompra.Alarmas = DevuelveAlarma();
+                objCompra.Balizas = DevuelveBaliza();
+                objCompra.Luces = DevuelveLuzNeon();
+                objCompra.Soft = DevuelveSoft();
+                objCompra.Vidrio = DevuelveVidrio();
+                objCompra.vehiculos = objvehiculo;
+                MessageBox.Show(objConcesionaria.CalcularPrecio(objCompra, cotizador));
+            }
         }
         private Alarma DevuelveAlarma()
         {
@@ -129,6 +148,7 @@ namespace Form_Automoviles
                 cmboxAutomoviles.Enabled = true;
                 cmboxCamionetas.Enabled = false;
             }
+            btnPrecio.Enabled = true;
         }
         private void rbtnCamioneta_CheckedChanged(object sender, EventArgs e)
         {
@@ -137,6 +157,7 @@ namespace Form_Automoviles
                 cmboxCamionetas.Enabled = true;
                 cmboxAutomoviles.Enabled = false;
             }
+            btnPrecio.Enabled = true;
         }
     }  
 }
