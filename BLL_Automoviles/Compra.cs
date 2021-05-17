@@ -5,7 +5,7 @@ namespace BLL_Automoviles
     public class Compra
     {
         Vehiculo _vehiculo;
-        public Vehiculo vehiculos
+        public Vehiculo Vehiculos
         {
             get { return _vehiculo; }
             set { _vehiculo = value; }

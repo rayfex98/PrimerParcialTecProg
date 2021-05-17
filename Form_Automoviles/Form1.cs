@@ -12,8 +12,8 @@ namespace Form_Automoviles
             InitializeComponent();
         }
 
-        private Concesionaria objConcesionaria = new Concesionaria();
-        private Vehiculo objvehiculo = new Vehiculo();
+        private Concesionaria objConcesionaria = new();
+        private Vehiculo objvehiculo = new();
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -46,18 +46,17 @@ namespace Form_Automoviles
         {
             float cotizador = 163.35f; //unirlo directo al txtbox
             bool flag = true;
-            Vehiculo mejorado = new Vehiculo();
-            Compra objCompra = new Compra(); 
+            Compra objCompra = new(); 
             if (rbtnAutomovil.Checked)
             {
                 objvehiculo = (Vehiculo)(cmboxAutomoviles.SelectedItem);
-                Automovil catAuto = new Automovil();
+                Automovil catAuto = new();
                 objvehiculo.Categoria = catAuto;
             }
             if (rbtnCamioneta.Checked)
             {
                 objvehiculo = (Vehiculo)(cmboxCamionetas.SelectedItem);
-                Camioneta catCamioneta = new Camioneta();
+                Camioneta catCamioneta = new();
                 objvehiculo.Categoria = catCamioneta;
             }
             try
@@ -82,8 +81,8 @@ namespace Form_Automoviles
                 objCompra.Luces = DevuelveLuzNeon();
                 objCompra.Soft = DevuelveSoft();
                 objCompra.Vidrio = DevuelveVidrio();
-                objCompra.vehiculos = objvehiculo;
-                MessageBox.Show(objConcesionaria.CalcularPrecio(objCompra, cotizador));
+                objCompra.Vehiculos = objvehiculo;
+                MessageBox.Show(Concesionaria.CalcularPrecio(objCompra, cotizador));
             }
         }
         private Alarma DevuelveAlarma()

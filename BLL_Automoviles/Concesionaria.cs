@@ -5,8 +5,8 @@ namespace BLL_Automoviles
 {
     public class Concesionaria
     {
-        private List<Vehiculo> _automovil = new List<Vehiculo>();
-        private List<Vehiculo> _camioneta = new List<Vehiculo>();
+        private List<Vehiculo> _automovil = new(); //utilizo dos listas, por que uso dos combobox
+        private List<Vehiculo> _camioneta = new();
 
 
         public List<Vehiculo> Automoviles
@@ -16,19 +16,23 @@ namespace BLL_Automoviles
         }
         public List<Vehiculo> AutomovilesDisponibles()
         {
-            Automovil catAuto = new Automovil();
-            Vehiculo objauto1 = new Vehiculo();
-            objauto1.Modelo = "Ford Focus";
-            objauto1.Categoria = catAuto;
-            objauto1.VelMax = 218;
-            objauto1.KmRecorridos = 0;
-            objauto1.Tanque = 43.2f;
-            Vehiculo objauto2 = new Vehiculo();
-            objauto2.Modelo = "Audi A3";
-            objauto2.Categoria = catAuto;
-            objauto2.VelMax = 202;
-            objauto2.KmRecorridos = 6450;
-            objauto2.Tanque = 34.8f;
+            Automovil catAuto = new(); //HARDCODE instancio dos autos
+            Vehiculo objauto1 = new()
+            {
+                Modelo = "Ford Focus",
+                Categoria = catAuto,
+                VelMax = 218,
+                KmRecorridos = 0,
+                Tanque = 43.2f
+            };
+            Vehiculo objauto2 = new()
+            {
+                Modelo = "Audi A3",
+                Categoria = catAuto,
+                VelMax = 202,
+                KmRecorridos = 6450,
+                Tanque = 34.8f
+            };
 
             this.Automoviles.Add(objauto1);
             this.Automoviles.Add(objauto2);
@@ -42,28 +46,30 @@ namespace BLL_Automoviles
         }
         public List<Vehiculo> CamionetasDisponibles()
         {
-            Camioneta catCam = new Camioneta();
-            Vehiculo objCamioneta = new Vehiculo();
-            objCamioneta.Modelo = "Ford Ranger";
-            objCamioneta.Categoria = catCam;
-            objCamioneta.VelMax = 170;
-            objCamioneta.KmRecorridos = 12000;
-            objCamioneta.Tanque = 55;
+            Camioneta catCam = new(); //HARDCODE instancio una camioneta
+            Vehiculo objCamioneta = new()
+            {
+                Modelo = "Ford Ranger",
+                Categoria = catCam,
+                VelMax = 170,
+                KmRecorridos = 12000,
+                Tanque = 55
+            };
 
             this.Camionetas.Add(objCamioneta);
 
             return this.Camionetas;
         }
         
-        
-        public string CalcularPrecio(Compra objCompra, float cotizacion) 
+        public static string CalcularPrecio(Compra objCompra, float cotizacion) //Recive vehiculo, mejoras y la cotizacion de la moneda. Retorna un string para el mensaje
         {
-            float precioFinal = 0;
+            float precioFinal;
             float precioMejoras = 0;
-            string precio = string.Empty;
-            precioFinal = objCompra.vehiculos.Categoria.DevolverPrecio(cotizacion);
-            precio = "PRECIO FINAL\n\nValor vehiculo: $" + objCompra.vehiculos.Categoria.DevolverPrecio(cotizacion);
-            if (objCompra.Soft != null)
+            string precio = string.Empty; //concatena los valores que se mostraran en el mensaje
+            precioFinal = objCompra.Vehiculos.Categoria.DevolverPrecio(cotizacion); //devuelve el valor del vehiculo en la cotizacion ingresada
+            precio = "PRECIO FINAL\n\nValor vehiculo: $" + objCompra.Vehiculos.Categoria.DevolverPrecio(cotizacion);
+
+            if (objCompra.Soft != null) //si el checkbox no estaba habilitado devolvia null, si esta habilitado procedo a acumular las mejoras
             {
                 precioMejoras += objCompra.Soft.DevolverCosto(cotizacion);
                 precio += "\n\n   Cargo por Software: $" + objCompra.Soft.DevolverCosto(cotizacion);
