@@ -6,23 +6,16 @@ namespace BLL_Automoviles
     {
         
         private string _modelo; //TODO: Separar en marca y modelo
-        private Mejoras _mejoras;
         private Categoria _categoria;
         private float _velMax;
         private float _kmRecorridos;
         private float _capacidadTanque;
-
 
         
         public string Modelo
         {
             get { return _modelo; }
             set { _modelo = value; }
-        }
-        public Mejoras Mejora
-        {
-            get { return _mejoras; }
-            set { _mejoras = value; }
         }
         public Categoria Categoria
         {

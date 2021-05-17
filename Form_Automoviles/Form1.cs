@@ -12,7 +12,7 @@ namespace Form_Automoviles
         }
 
         private Concesionaria objConcesionaria = new Concesionaria();
-        protected Vehiculo objvehiculo = new Vehiculo();
+        private Vehiculo objvehiculo = new Vehiculo();
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -42,10 +42,10 @@ namespace Form_Automoviles
 
         private void btnPrecio_Click(object sender, EventArgs e)
         { 
-            Mejoras objmejora = new Mejoras();
             float cotizador = 163.35f;
+            Vehiculo mejorado = new Vehiculo();
+            Compra objCompra = new Compra();
             // cotizador = (float.Parse(tboxCotizador.Text));
-            objConcesionaria.ObtenerMejoras(objmejora);
             if (rbtnAutomovil.Checked)
             {
                 objvehiculo = (Vehiculo)(cmboxAutomoviles.SelectedItem);
@@ -58,27 +58,68 @@ namespace Form_Automoviles
                 Camioneta catCamioneta = new Camioneta();
                 objvehiculo.Categoria = catCamioneta;
             }
-            if (cboxSoft.Checked)
-            {
-                objvehiculo.Mejora.SoftUpdate = objmejora.ARGSoft(cotizador);
-            }
+            objCompra.Alarmas = DevuelveAlarma();
+            objCompra.Balizas = DevuelveBaliza();
+            objCompra.Luces = DevuelveLuzNeon();
+            objCompra.Soft = DevuelveSoft(); 
+            objCompra.Vidrio = DevuelveVidrio();
+            objCompra.vehiculos = objvehiculo;
+            MessageBox.Show(objConcesionaria.CalcularPrecio(objCompra, cotizador));
+        }
+        private Alarma DevuelveAlarma()
+        {
             if (cboxAlarma.Checked)
             {
-                objvehiculo.Mejora.Alarma = objmejora.Alarma;
+                return new Alarma();
             }
-            if (cboxVidrio.Checked)
+            else
             {
-                objvehiculo.Mejora.Vidrio = objmejora.Vidrio;
+                return null;
             }
+        }
+        private SoftwareUpdate DevuelveSoft()
+        {
+            if (cboxSoft.Checked)
+            {
+                return new SoftwareUpdate();
+            }
+            else
+            {
+                return null;
+            }
+        }
+        private Baliza DevuelveBaliza()
+        {
             if (cboxBaliza.Checked)
             {
-                objvehiculo.Mejora.Baliza = objmejora.Baliza;
+                return new Baliza();
             }
+            else
+            {
+                return null;
+            }
+        }
+        private LuzNeon DevuelveLuzNeon()
+        {
             if (cboxNeon.Checked)
             {
-                objvehiculo.Mejora.LuzNeon= objmejora.LuzNeon;
+                return new LuzNeon();
             }
-            MessageBox.Show(objConcesionaria.CalcularPrecio(objvehiculo, objmejora, cotizador));
+            else
+            {
+                return null;
+            }
+        }
+        private Vidrio DevuelveVidrio()
+        {
+            if (cboxVidrio.Checked)
+            {
+                return new Vidrio();
+            }
+            else
+            {
+                return null;
+            }
         }
         private void rbtnAutomovil_CheckedChanged(object sender, EventArgs e)
         {
