@@ -45,7 +45,7 @@ namespace Form_Automoviles
             float cotizador = 163.35f;
             Vehiculo mejorado = new Vehiculo();
             Compra objCompra = new Compra();
-            // cotizador = (float.Parse(tboxCotizador.Text));
+            //cotizador = (float.Parse(tboxCotizador.Text));
             if (rbtnAutomovil.Checked)
             {
                 objvehiculo = (Vehiculo)(cmboxAutomoviles.SelectedItem);

@@ -274,7 +274,6 @@ namespace Form_Automoviles
             this.tboxCotizador.Name = "tboxCotizador";
             this.tboxCotizador.Size = new System.Drawing.Size(100, 23);
             this.tboxCotizador.TabIndex = 20;
-            this.tboxCotizador.Text = "$";
             // 
             // label9
             // 

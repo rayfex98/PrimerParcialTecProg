@@ -62,30 +62,35 @@ namespace BLL_Automoviles
             float precioMejoras = 0;
             string precio = string.Empty;
             precioFinal = objCompra.vehiculos.Categoria.DevolverPrecio(cotizacion);
-            precio = "Valor vehiculo: $" + objCompra.vehiculos.Categoria.DevolverPrecio(cotizacion);
+            precio = "PRECIO FINAL\nValor vehiculo: $" + objCompra.vehiculos.Categoria.DevolverPrecio(cotizacion);
             if (objCompra.Soft != null)
             {
                 precioMejoras += objCompra.Soft.DevolverCosto(cotizacion);
+                precio += "\n\nCargo por Software: $" + objCompra.Soft.DevolverCosto(cotizacion);
             }
             if (objCompra.Alarmas != null)
             {
                 precioMejoras += objCompra.Alarmas.DevolverCosto(cotizacion);
+                precio += "\nCargo por Alarmas: $" + objCompra.Alarmas.DevolverCosto(cotizacion);
             }
             if (objCompra.Vidrio != null)
             {
                 precioMejoras += objCompra.Vidrio.DevolverCosto(cotizacion);
+                precio += "\nCargo por Vidrio Polarizado: $" + objCompra.Vidrio.DevolverCosto(cotizacion);
             }
             if (objCompra.Balizas != null)
             {
                 precioMejoras += objCompra.Balizas.DevolverCosto(cotizacion);
+                precio += "\nCargo por Balizas: $" + objCompra.Balizas.DevolverCosto(cotizacion);
             }
             if (objCompra.Luces != null)
             {
                 precioMejoras += objCompra.Luces.DevolverCosto(cotizacion);
+                precio += "\nCargo por Luces de Neon: $" + objCompra.Luces.DevolverCosto(cotizacion);
             }
-            precio += "\n Precio de mejoras: " + precioMejoras;
+            precio += "\n\n Precio de mejoras: " + precioMejoras;
             precioFinal += precioMejoras;
-            precio += "\n Precio Final: $" + precioFinal;
+            precio += "\n\n\n Precio Final: $" + precioFinal;
             return precio;
         }
     }

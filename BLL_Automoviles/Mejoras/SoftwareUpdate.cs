@@ -7,7 +7,7 @@ namespace BLL_Automoviles
 
         public override float DevolverCosto(float cotizador)
         {
-            return (costo);
+            return (1500 * cotizador);
         }
     }
 }
