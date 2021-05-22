@@ -55,13 +55,15 @@ namespace Form_Automoviles
             this.tboxCotizador = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.cmboxCamionetas = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVeh)).BeginInit();
             this.SuspendLayout();
             // 
             // cboxSoft
             // 
             this.cboxSoft.AutoSize = true;
-            this.cboxSoft.Location = new System.Drawing.Point(528, 230);
+            this.cboxSoft.Location = new System.Drawing.Point(548, 230);
             this.cboxSoft.Name = "cboxSoft";
             this.cboxSoft.Size = new System.Drawing.Size(113, 19);
             this.cboxSoft.TabIndex = 0;
@@ -71,7 +73,7 @@ namespace Form_Automoviles
             // cboxAlarma
             // 
             this.cboxAlarma.AutoSize = true;
-            this.cboxAlarma.Location = new System.Drawing.Point(528, 255);
+            this.cboxAlarma.Location = new System.Drawing.Point(548, 255);
             this.cboxAlarma.Name = "cboxAlarma";
             this.cboxAlarma.Size = new System.Drawing.Size(64, 19);
             this.cboxAlarma.TabIndex = 1;
@@ -81,7 +83,7 @@ namespace Form_Automoviles
             // cboxVidrio
             // 
             this.cboxVidrio.AutoSize = true;
-            this.cboxVidrio.Location = new System.Drawing.Point(528, 280);
+            this.cboxVidrio.Location = new System.Drawing.Point(548, 280);
             this.cboxVidrio.Name = "cboxVidrio";
             this.cboxVidrio.Size = new System.Drawing.Size(115, 19);
             this.cboxVidrio.TabIndex = 2;
@@ -91,7 +93,7 @@ namespace Form_Automoviles
             // cboxBaliza
             // 
             this.cboxBaliza.AutoSize = true;
-            this.cboxBaliza.Location = new System.Drawing.Point(528, 305);
+            this.cboxBaliza.Location = new System.Drawing.Point(548, 305);
             this.cboxBaliza.Name = "cboxBaliza";
             this.cboxBaliza.Size = new System.Drawing.Size(61, 19);
             this.cboxBaliza.TabIndex = 3;
@@ -101,7 +103,7 @@ namespace Form_Automoviles
             // cboxNeon
             // 
             this.cboxNeon.AutoSize = true;
-            this.cboxNeon.Location = new System.Drawing.Point(528, 331);
+            this.cboxNeon.Location = new System.Drawing.Point(548, 331);
             this.cboxNeon.Name = "cboxNeon";
             this.cboxNeon.Size = new System.Drawing.Size(102, 19);
             this.cboxNeon.TabIndex = 4;
@@ -116,24 +118,25 @@ namespace Form_Automoviles
             this.cmboxAutomoviles.Name = "cmboxAutomoviles";
             this.cmboxAutomoviles.Size = new System.Drawing.Size(208, 23);
             this.cmboxAutomoviles.TabIndex = 5;
-            this.cmboxAutomoviles.Text = "Modelos";
+            this.cmboxAutomoviles.Text = "Modelos de automóviles";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(528, 198);
+            this.label1.Location = new System.Drawing.Point(548, 212);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(49, 15);
+            this.label1.Size = new System.Drawing.Size(125, 15);
             this.label1.TabIndex = 6;
-            this.label1.Text = "Mejoras";
+            this.label1.Text = "Seleccione las mejoras";
             // 
             // btnPrecio
             // 
-            this.btnPrecio.Location = new System.Drawing.Point(578, 430);
+            this.btnPrecio.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnPrecio.Location = new System.Drawing.Point(548, 381);
             this.btnPrecio.Name = "btnPrecio";
-            this.btnPrecio.Size = new System.Drawing.Size(110, 27);
+            this.btnPrecio.Size = new System.Drawing.Size(178, 38);
             this.btnPrecio.TabIndex = 7;
-            this.btnPrecio.Text = "Calcular Precio";
+            this.btnPrecio.Text = "Calcular precio final";
             this.btnPrecio.UseVisualStyleBackColor = true;
             this.btnPrecio.Click += new System.EventHandler(this.btnPrecio_Click);
             // 
@@ -145,7 +148,7 @@ namespace Form_Automoviles
             this.VelMax,
             this.DistanciaRecorrida,
             this.Tanque});
-            this.dgvVeh.Location = new System.Drawing.Point(39, 230);
+            this.dgvVeh.Location = new System.Drawing.Point(39, 259);
             this.dgvVeh.Name = "dgvVeh";
             this.dgvVeh.RowTemplate.Height = 25;
             this.dgvVeh.Size = new System.Drawing.Size(443, 227);
@@ -174,47 +177,47 @@ namespace Form_Automoviles
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(651, 309);
+            this.label2.Location = new System.Drawing.Point(671, 309);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(37, 15);
+            this.label2.Size = new System.Drawing.Size(55, 15);
             this.label2.TabIndex = 9;
-            this.label2.Text = "$1000";
+            this.label2.Text = "  $    1000";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(651, 335);
+            this.label3.Location = new System.Drawing.Point(671, 335);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(37, 15);
+            this.label3.Size = new System.Drawing.Size(55, 15);
             this.label3.TabIndex = 10;
-            this.label3.Text = "$7500";
+            this.label3.Text = "  $    7500";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(651, 284);
+            this.label4.Location = new System.Drawing.Point(671, 284);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(37, 15);
+            this.label4.Size = new System.Drawing.Size(55, 15);
             this.label4.TabIndex = 11;
-            this.label4.Text = "$1500";
+            this.label4.Text = "  $    1500";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(651, 259);
+            this.label5.Location = new System.Drawing.Point(671, 259);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(37, 15);
+            this.label5.Size = new System.Drawing.Size(55, 15);
             this.label5.TabIndex = 12;
-            this.label5.Text = "$5000";
+            this.label5.Text = "  $    5000";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(651, 234);
+            this.label6.Location = new System.Drawing.Point(671, 234);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(37, 15);
+            this.label6.Size = new System.Drawing.Size(56, 15);
             this.label6.TabIndex = 13;
-            this.label6.Text = "$1500";
+            this.label6.Text = "U$D 1500";
             // 
             // rbtnAutomovil
             // 
@@ -242,11 +245,12 @@ namespace Form_Automoviles
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(39, 177);
+            this.btnAgregar.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnAgregar.Location = new System.Drawing.Point(39, 212);
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(116, 23);
+            this.btnAgregar.Size = new System.Drawing.Size(207, 37);
             this.btnAgregar.TabIndex = 16;
-            this.btnAgregar.Text = "Agregar a grilla";
+            this.btnAgregar.Text = "Agregar modelo a comparador";
             this.btnAgregar.UseVisualStyleBackColor = true;
             this.btnAgregar.Click += new System.EventHandler(this.btnCaracteristicas_Click);
             // 
@@ -255,34 +259,34 @@ namespace Form_Automoviles
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(100, 77);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(55, 15);
+            this.label7.Size = new System.Drawing.Size(74, 15);
             this.label7.TabIndex = 18;
-            this.label7.Text = " $100.000";
+            this.label7.Text = " U$D 100.000";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(380, 77);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(52, 15);
+            this.label8.Size = new System.Drawing.Size(71, 15);
             this.label8.TabIndex = 19;
-            this.label8.Text = "$150.000";
+            this.label8.Text = "U$D 150.000";
             // 
             // tboxCotizador
             // 
-            this.tboxCotizador.Location = new System.Drawing.Point(588, 100);
+            this.tboxCotizador.Location = new System.Drawing.Point(548, 141);
             this.tboxCotizador.Name = "tboxCotizador";
-            this.tboxCotizador.Size = new System.Drawing.Size(100, 23);
+            this.tboxCotizador.Size = new System.Drawing.Size(64, 23);
             this.tboxCotizador.TabIndex = 20;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(594, 82);
+            this.label9.Location = new System.Drawing.Point(548, 123);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(94, 15);
+            this.label9.Size = new System.Drawing.Size(159, 15);
             this.label9.TabIndex = 21;
-            this.label9.Text = "Cotizacion Dolar";
+            this.label9.Text = "Cotización! 1 Peso equivale a";
             // 
             // cmboxCamionetas
             // 
@@ -291,13 +295,34 @@ namespace Form_Automoviles
             this.cmboxCamionetas.Name = "cmboxCamionetas";
             this.cmboxCamionetas.Size = new System.Drawing.Size(196, 23);
             this.cmboxCamionetas.TabIndex = 22;
-            this.cmboxCamionetas.Text = "Modelos";
+            this.cmboxCamionetas.Text = "Modelos de camionetas";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label10.Location = new System.Drawing.Point(38, 40);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(409, 21);
+            this.label10.TabIndex = 23;
+            this.label10.Text = "Seleccione una categoria y modelo para calcular su precio";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(616, 144);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(48, 15);
+            this.label11.TabIndex = 24;
+            this.label11.Text = "dólares.";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(741, 557);
+            this.ClientSize = new System.Drawing.Size(762, 557);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.cmboxCamionetas);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.tboxCotizador);
@@ -357,6 +382,8 @@ namespace Form_Automoviles
         private System.Windows.Forms.TextBox tboxCotizador;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox cmboxCamionetas;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
     }
 }
 
