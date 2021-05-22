@@ -1,7 +1,7 @@
 ﻿
 namespace Form_Automoviles
 {
-    partial class GrillaPrecio
+    partial class GrillaVehiculo
     {
         /// <summary>
         /// Required designer variable.
@@ -39,7 +39,13 @@ namespace Form_Automoviles
             this.LuzNeon = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PrecioMejoras = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PrecioTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvCaracteristicas = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VelMax = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DistanciaRecorrida = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TanqueLitro = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPrecio)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCaracteristicas)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvPrecio
@@ -56,11 +62,10 @@ namespace Form_Automoviles
             this.LuzNeon,
             this.PrecioMejoras,
             this.PrecioTotal});
-            this.dgvPrecio.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvPrecio.Location = new System.Drawing.Point(0, 0);
             this.dgvPrecio.Name = "dgvPrecio";
             this.dgvPrecio.RowTemplate.Height = 25;
-            this.dgvPrecio.Size = new System.Drawing.Size(943, 100);
+            this.dgvPrecio.Size = new System.Drawing.Size(943, 132);
             this.dgvPrecio.TabIndex = 0;
             // 
             // Modelo
@@ -108,17 +113,57 @@ namespace Form_Automoviles
             this.PrecioTotal.HeaderText = "Precio Total";
             this.PrecioTotal.Name = "PrecioTotal";
             // 
-            // GrillaPrecio
+            // dgvCaracteristicas
+            // 
+            this.dgvCaracteristicas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCaracteristicas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.VelMax,
+            this.DistanciaRecorrida,
+            this.TanqueLitro});
+            this.dgvCaracteristicas.Location = new System.Drawing.Point(0, 131);
+            this.dgvCaracteristicas.Name = "dgvCaracteristicas";
+            this.dgvCaracteristicas.RowTemplate.Height = 25;
+            this.dgvCaracteristicas.Size = new System.Drawing.Size(443, 106);
+            this.dgvCaracteristicas.TabIndex = 1;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.HeaderText = "Modelo";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // VelMax
+            // 
+            this.VelMax.HeaderText = "Velocidad máxima en km/h";
+            this.VelMax.Name = "VelMax";
+            this.VelMax.ReadOnly = true;
+            // 
+            // DistanciaRecorrida
+            // 
+            this.DistanciaRecorrida.HeaderText = "Distancia Recorrida en km";
+            this.DistanciaRecorrida.Name = "DistanciaRecorrida";
+            this.DistanciaRecorrida.ReadOnly = true;
+            // 
+            // TanqueLitro
+            // 
+            this.TanqueLitro.HeaderText = "Capacidad de tanque en Litros";
+            this.TanqueLitro.Name = "TanqueLitro";
+            this.TanqueLitro.ReadOnly = true;
+            // 
+            // GrillaVehiculo
             // 
             this.AccessibleName = "dtgPrecio";
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(943, 100);
+            this.ClientSize = new System.Drawing.Size(944, 231);
+            this.Controls.Add(this.dgvCaracteristicas);
             this.Controls.Add(this.dgvPrecio);
-            this.Name = "GrillaPrecio";
-            this.Text = "GrillaPrecio";
+            this.Name = "GrillaVehiculo";
+            this.Text = "Grilla datos del vehículo en pesos";
             this.Load += new System.EventHandler(this.GrillaPrecio_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPrecio)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCaracteristicas)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -135,5 +180,10 @@ namespace Form_Automoviles
         private System.Windows.Forms.DataGridViewTextBoxColumn LuzNeon;
         private System.Windows.Forms.DataGridViewTextBoxColumn PrecioMejoras;
         private System.Windows.Forms.DataGridViewTextBoxColumn PrecioTotal;
+        private System.Windows.Forms.DataGridView dgvCaracteristicas;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn VelMax;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DistanciaRecorrida;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TanqueLitro;
     }
 }

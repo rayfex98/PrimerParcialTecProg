@@ -10,11 +10,11 @@ using System.Windows.Forms;
 
 namespace Form_Automoviles
 {
-    public partial class GrillaPrecio : Form
+    public partial class GrillaVehiculo : Form
     {
         Compra objCompra;
         float cotizacion;
-        public GrillaPrecio(Compra compra, float cotizador)
+        public GrillaVehiculo(Compra compra, float cotizador)
         {
             objCompra = compra;
             cotizacion = cotizador;
@@ -81,6 +81,12 @@ namespace Form_Automoviles
             dgvPrecio.Rows[n].Cells[7].Value = precioMejoras; //Total Mejoras
             precioFinal += precioMejoras; 
             dgvPrecio.Rows[n].Cells[8].Value = precioFinal; //Precio Final
+
+            int m = dgvCaracteristicas.Rows.Add(); //datagrid de caracteristicas con conversion local
+            dgvCaracteristicas.Rows[m].Cells[0].Value = objCompra.Vehiculos.Modelo; //Modelo del vehiculo
+            dgvCaracteristicas.Rows[m].Cells[1].Value = objCompra.Vehiculos.ARGVelMax();//Velocidad Maxima en K/h
+            dgvCaracteristicas.Rows[m].Cells[2].Value = objCompra.Vehiculos.ARGDistancia(); //Distancia Recorrida en km
+            dgvCaracteristicas.Rows[m].Cells[3].Value = objCompra.Vehiculos.ARGTanque(); //Capacidad de tanque en Litros
         }
     }
 }

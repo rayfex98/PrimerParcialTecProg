@@ -82,7 +82,7 @@ namespace Form_Automoviles
                 objCompra.Soft = DevuelveSoft(); //Mejora
                 objCompra.Vidrio = DevuelveVidrio(); //Mejora
                 objCompra.Vehiculos = objvehiculo; //guarda vehiculo seleccionado
-                GrillaPrecio detalle = new(objCompra, cotizador); //Form de datagridview
+                GrillaVehiculo detalle = new(objCompra, cotizador); //Form de datagridview
                 detalle.Show(); //muestra el form
                 //MessageBox.Show(Concesionaria.CalcularPrecio(objCompra, cotizador)); //muestra detalle del precio con una ventana
             }

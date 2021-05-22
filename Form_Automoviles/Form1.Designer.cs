@@ -38,10 +38,6 @@ namespace Form_Automoviles
             this.label1 = new System.Windows.Forms.Label();
             this.btnPrecio = new System.Windows.Forms.Button();
             this.dgvVeh = new System.Windows.Forms.DataGridView();
-            this.Modelo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.VelMax = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DistanciaRecorrida = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Tanque = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -57,6 +53,10 @@ namespace Form_Automoviles
             this.cmboxCamionetas = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
+            this.Modelo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VelMax = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DistanciaRecorrida = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Tanque = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVeh)).BeginInit();
             this.SuspendLayout();
             // 
@@ -153,26 +153,6 @@ namespace Form_Automoviles
             this.dgvVeh.RowTemplate.Height = 25;
             this.dgvVeh.Size = new System.Drawing.Size(443, 227);
             this.dgvVeh.TabIndex = 8;
-            // 
-            // Modelo
-            // 
-            this.Modelo.HeaderText = "Modelo";
-            this.Modelo.Name = "Modelo";
-            // 
-            // VelMax
-            // 
-            this.VelMax.HeaderText = "Velocidad Maxima";
-            this.VelMax.Name = "VelMax";
-            // 
-            // DistanciaRecorrida
-            // 
-            this.DistanciaRecorrida.HeaderText = "Distancia Recorrida";
-            this.DistanciaRecorrida.Name = "DistanciaRecorrida";
-            // 
-            // Tanque
-            // 
-            this.Tanque.HeaderText = "Capacidad del tanque";
-            this.Tanque.Name = "Tanque";
             // 
             // label2
             // 
@@ -316,6 +296,30 @@ namespace Form_Automoviles
             this.label11.TabIndex = 24;
             this.label11.Text = "dólares.";
             // 
+            // Modelo
+            // 
+            this.Modelo.HeaderText = "Modelo";
+            this.Modelo.Name = "Modelo";
+            this.Modelo.ReadOnly = true;
+            // 
+            // VelMax
+            // 
+            this.VelMax.HeaderText = "Velocidad Maxima";
+            this.VelMax.Name = "VelMax";
+            this.VelMax.ReadOnly = true;
+            // 
+            // DistanciaRecorrida
+            // 
+            this.DistanciaRecorrida.HeaderText = "Distancia Recorrida";
+            this.DistanciaRecorrida.Name = "DistanciaRecorrida";
+            this.DistanciaRecorrida.ReadOnly = true;
+            // 
+            // Tanque
+            // 
+            this.Tanque.HeaderText = "Capacidad del tanque";
+            this.Tanque.Name = "Tanque";
+            this.Tanque.ReadOnly = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -375,15 +379,15 @@ namespace Form_Automoviles
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Modelo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn VelMax;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DistanciaRecorrida;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Tanque;
         private System.Windows.Forms.TextBox tboxCotizador;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox cmboxCamionetas;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Modelo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn VelMax;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DistanciaRecorrida;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Tanque;
     }
 }
 
