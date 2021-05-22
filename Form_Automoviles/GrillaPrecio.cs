@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using BLL_Automoviles;
 using System.Windows.Forms;
+using System.Globalization;
 
 namespace Form_Automoviles
 {
@@ -25,14 +26,15 @@ namespace Form_Automoviles
         {
             float precioMejoras = 0, precioFinal;
             precioFinal = objCompra.Vehiculos.Categoria.DevolverPrecio(cotizacion);
+            CultureInfo argentina = new CultureInfo("es-ar"); //formato moneda argentina para la grilla
             int n = dgvPrecio.Rows.Add(); //agrego 9 columnas
             dgvPrecio.Rows[n].Cells[0].Value = objCompra.Vehiculos.Modelo; //modelo
-            dgvPrecio.Rows[n].Cells[1].Value = precioFinal; //precioVehiculo
+            dgvPrecio.Rows[n].Cells[1].Value = precioFinal.ToString("C", argentina); //precioVehiculo
             //si el checkbox no estaba habilitado devolvia null, entonces muestro un 0. Si esta habilitado procedo a mostrar en grilla y acumular las mejoras (aplica a los if de abajo)
             if (objCompra.Soft != null) 
             {
                 precioMejoras += objCompra.Soft.DevolverCosto(cotizacion);
-                dgvPrecio.Rows[n].Cells[2].Value = objCompra.Soft.DevolverCosto(cotizacion); //Actualizacion de Software
+                dgvPrecio.Rows[n].Cells[2].Value = (objCompra.Soft.DevolverCosto(cotizacion)).ToString("C", argentina); //Actualizacion de Software
             }
             else
             {
@@ -42,7 +44,7 @@ namespace Form_Automoviles
             if (objCompra.Alarmas != null)
             {
                 precioMejoras += objCompra.Alarmas.DevolverCosto(cotizacion);
-                dgvPrecio.Rows[n].Cells[3].Value = objCompra.Alarmas.DevolverCosto(cotizacion); //Alarma
+                dgvPrecio.Rows[n].Cells[3].Value = (objCompra.Alarmas.DevolverCosto(cotizacion)).ToString("C", argentina); //Alarma
             }
             else
             {
@@ -52,7 +54,7 @@ namespace Form_Automoviles
             if (objCompra.Vidrio != null)
             {
                 precioMejoras += objCompra.Vidrio.DevolverCosto(cotizacion);
-                dgvPrecio.Rows[n].Cells[4].Value = objCompra.Vidrio.DevolverCosto(cotizacion); //Vidrio
+                dgvPrecio.Rows[n].Cells[4].Value = (objCompra.Vidrio.DevolverCosto(cotizacion)).ToString("C", argentina); //Vidrio
             }
             else
             {
@@ -62,7 +64,7 @@ namespace Form_Automoviles
             if (objCompra.Balizas != null)
             {
                 precioMejoras += objCompra.Balizas.DevolverCosto(cotizacion);
-                dgvPrecio.Rows[n].Cells[5].Value = objCompra.Balizas.DevolverCosto(cotizacion); //Baliza
+                dgvPrecio.Rows[n].Cells[5].Value = (objCompra.Balizas.DevolverCosto(cotizacion)).ToString("C", argentina); //Baliza
             }
             else
             {
@@ -72,15 +74,15 @@ namespace Form_Automoviles
             if (objCompra.Luces != null)
             {
                 precioMejoras += objCompra.Luces.DevolverCosto(cotizacion);
-                dgvPrecio.Rows[n].Cells[6].Value = objCompra.Luces.DevolverCosto(cotizacion); //Luces de neón
+                dgvPrecio.Rows[n].Cells[6].Value = (objCompra.Luces.DevolverCosto(cotizacion)).ToString("C", argentina); //Luces de neón
             }
             else
             {
                 dgvPrecio.Rows[n].Cells[6].Value = 0;
             }
-            dgvPrecio.Rows[n].Cells[7].Value = precioMejoras; //Total Mejoras
+            dgvPrecio.Rows[n].Cells[7].Value = precioMejoras.ToString("C", argentina); //Total Mejoras
             precioFinal += precioMejoras; 
-            dgvPrecio.Rows[n].Cells[8].Value = precioFinal; //Precio Final
+            dgvPrecio.Rows[n].Cells[8].Value = precioFinal.ToString("C", argentina); //Precio Final
 
             int m = dgvCaracteristicas.Rows.Add(); //datagrid de caracteristicas con conversion local
             dgvCaracteristicas.Rows[m].Cells[0].Value = objCompra.Vehiculos.Modelo; //Modelo del vehiculo

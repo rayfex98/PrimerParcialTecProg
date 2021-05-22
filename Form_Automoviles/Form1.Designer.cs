@@ -304,19 +304,19 @@ namespace Form_Automoviles
             // 
             // VelMax
             // 
-            this.VelMax.HeaderText = "Velocidad Maxima";
+            this.VelMax.HeaderText = "Velocidad Maxima en km/h";
             this.VelMax.Name = "VelMax";
             this.VelMax.ReadOnly = true;
             // 
             // DistanciaRecorrida
             // 
-            this.DistanciaRecorrida.HeaderText = "Distancia Recorrida";
+            this.DistanciaRecorrida.HeaderText = "Distancia Recorrida en km";
             this.DistanciaRecorrida.Name = "DistanciaRecorrida";
             this.DistanciaRecorrida.ReadOnly = true;
             // 
             // Tanque
             // 
-            this.Tanque.HeaderText = "Capacidad del tanque";
+            this.Tanque.HeaderText = "Capacidad del tanque en litros";
             this.Tanque.Name = "Tanque";
             this.Tanque.ReadOnly = true;
             // 
