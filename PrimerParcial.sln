@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.31205.134
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BLL_Automoviles", "BLL_Automoviles\BLL_Automoviles.csproj", "{607E055A-699E-47B6-8FC8-470577A1C29A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Form_Automoviles", "Form_Automoviles\Form_Automoviles.csproj", "{83308AA1-59E2-4DA6-995F-DDF07F97DDE5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Form_Automoviles", "Form_Automoviles\Form_Automoviles.csproj", "{83308AA1-59E2-4DA6-995F-DDF07F97DDE5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -129,7 +129,7 @@ namespace Form_Automoviles
             // 
             // btnPrecio
             // 
-            this.btnPrecio.Location = new System.Drawing.Point(578, 377);
+            this.btnPrecio.Location = new System.Drawing.Point(578, 430);
             this.btnPrecio.Name = "btnPrecio";
             this.btnPrecio.Size = new System.Drawing.Size(110, 27);
             this.btnPrecio.TabIndex = 7;
