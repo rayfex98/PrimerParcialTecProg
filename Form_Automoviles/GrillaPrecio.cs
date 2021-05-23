@@ -20,16 +20,19 @@ namespace Form_Automoviles
         {
             objCompra = compra;
             cotizacion = cotizador;
-            InitializeComponent();
+            try
+            {
+                InitializeComponent();
+            }
+            catch(ExcepcionVehiculoVacio)
+            {
+                throw new ExcepcionVehiculoVacio();
+            }
         }
 
         private void GrillaPrecio_Load(object sender, EventArgs e)
         {
             float precioMejoras = 0, precioFinal;
-            if(objCompra.Vehiculos.Categoria == null)
-            {
-                throw new ExcepcionVehiculoVacio();
-            }
             precioFinal = objCompra.Vehiculos.Categoria.DevolverPrecio(cotizacion);
             CultureInfo argentina = new CultureInfo("es-ar"); //formato moneda argentina para la grilla
             int n = dgvPrecio.Rows.Add(); //agrego 9 columnas

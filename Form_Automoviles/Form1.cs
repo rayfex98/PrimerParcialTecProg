@@ -61,10 +61,10 @@ namespace Form_Automoviles
 
             try
             {
-                /*if (objvehiculo.Categoria == null)
+                if (objvehiculo.Categoria == null)
                 {
                     throw new ExcepcionVehiculoVacio();
-                }*/
+                }
                 if (String.IsNullOrEmpty(tboxCotizador.Text))
                 {
                     throw new ExcepcionCotizacionVacia();
