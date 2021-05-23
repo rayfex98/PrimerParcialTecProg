@@ -1,10 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using BLL_Automoviles;
 using BLL_Automoviles.Excepciones;
 using System.Windows.Forms;
@@ -20,14 +14,7 @@ namespace Form_Automoviles
         {
             objCompra = compra;
             cotizacion = cotizador;
-            try
-            {
-                InitializeComponent();
-            }
-            catch(ExcepcionVehiculoVacio)
-            {
-                throw new ExcepcionVehiculoVacio();
-            }
+            InitializeComponent();
         }
 
         private void GrillaPrecio_Load(object sender, EventArgs e)
@@ -35,10 +22,10 @@ namespace Form_Automoviles
             float precioMejoras = 0, precioFinal;
             precioFinal = objCompra.Vehiculos.Categoria.DevolverPrecio(cotizacion);
             CultureInfo argentina = new CultureInfo("es-ar"); //formato moneda argentina para la grilla
-            int n = dgvPrecio.Rows.Add(); //agrego 9 columnas
+            int n = dgvPrecio.Rows.Add();
             dgvPrecio.Rows[n].Cells[0].Value = objCompra.Vehiculos.Modelo; //modelo
             dgvPrecio.Rows[n].Cells[1].Value = precioFinal.ToString("C", argentina); //precioVehiculo
-                                                                                        //si el checkbox no estaba habilitado devolvia null, entonces muestro un 0. Si esta habilitado procedo a mostrar en grilla y acumular las mejoras (aplica a los if de abajo)
+            //si el checkbox no estaba habilitado devolvia null, entonces muestro un 0. Si esta habilitado muestro en grilla y acumulo las mejoras (aplica a los if de abajo)
             if (objCompra.Soft != null)
             {
                 precioMejoras += objCompra.Soft.DevolverCosto(cotizacion);

@@ -18,7 +18,7 @@ namespace Form_Automoviles
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            cmboxAutomoviles.Enabled = false; //dehabilito combobox hasta que elija vehiculo
+            cmboxAutomoviles.Enabled = false; //dehabilito combobox hasta que elija categoria para vehiculo
             cmboxCamionetas.Enabled = false;
             cmboxAutomoviles.DataSource = objConcesionaria.AutomovilesDisponibles(); //lista de autos
             cmboxAutomoviles.DisplayMember = "Modelo";
@@ -45,14 +45,14 @@ namespace Form_Automoviles
         private void btnPrecio_Click(object sender, EventArgs e)
         {
             float cotizador = 0; //luego levanto con tboxCotizador
-            Compra objCompra = new(); //obtiene vehiculo y mejoras
-            if (rbtnAutomovil.Checked) //asigno precio de automovil
+            Compra objCompra = new(); //instancio vehiculo y mejoras
+            if (rbtnAutomovil.Checked) //asigno precio de automovil a vehiculo
             {
                 objvehiculo = (Vehiculo)(cmboxAutomoviles.SelectedItem);
                 Automovil catAuto = new();
                 objvehiculo.Categoria = catAuto;
             }
-            if (rbtnCamioneta.Checked) //asigno precio de camioneta
+            if (rbtnCamioneta.Checked) //asigno precio de camioneta a vehiculo
             {
                 objvehiculo = (Vehiculo)(cmboxCamionetas.SelectedItem);
                 Camioneta catCamioneta = new();
@@ -61,11 +61,11 @@ namespace Form_Automoviles
 
             try
             {
-                if (objvehiculo.Categoria == null)
+                if (objvehiculo.Categoria == null) //sin seleccionar roundbotton de categoria
                 {
                     throw new ExcepcionVehiculoVacio();
                 }
-                if (String.IsNullOrEmpty(tboxCotizador.Text))
+                if (String.IsNullOrEmpty(tboxCotizador.Text)) //txtbox cotizacion sin llenar
                 {
                     throw new ExcepcionCotizacionVacia();
                 }
@@ -74,13 +74,13 @@ namespace Form_Automoviles
                 {
                     throw new ExcepcionCotizacionInvalida();
                 }
-                objCompra.Alarmas = DevuelveAlarma(); //Mejora: si el combobox esta chequeado le asigna alarma a la compra, caso contrario devuelve null
-                objCompra.Balizas = DevuelveBaliza(); //Mejora
-                objCompra.Luces = DevuelveLuzNeon(); //Mejora
-                objCompra.Soft = DevuelveSoft(); //Mejora
-                objCompra.Vidrio = DevuelveVidrio(); //Mejora
-                objCompra.Vehiculos = objvehiculo; //guarda vehiculo seleccionado
-                GrillaVehiculo detalle = new(objCompra, cotizador); //Form de datagridview
+                objCompra.Alarmas = DevuelveAlarma(); //Mejoras: si el combobox esta chequeado le asigna alarma a la compra, caso contrario devuelve null
+                objCompra.Balizas = DevuelveBaliza();
+                objCompra.Luces = DevuelveLuzNeon();
+                objCompra.Soft = DevuelveSoft();
+                objCompra.Vidrio = DevuelveVidrio();
+                objCompra.Vehiculos = objvehiculo; //guarda vehiculo seleccionado en cbox
+                GrillaVehiculo detalle = new(objCompra, cotizador); //instancio datagridview con detalle del precio y caracteristicas
                 detalle.Show(); //muestra el form
             }
             catch (ExcepcionCotizacionVacia ex) //si cotizador queda vacio, genera excepcion
