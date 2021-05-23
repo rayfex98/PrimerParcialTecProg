@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using BLL_Automoviles;
+using BLL_Automoviles.Excepciones;
 using System.Windows.Forms;
 using System.Globalization;
 
@@ -25,13 +26,17 @@ namespace Form_Automoviles
         private void GrillaPrecio_Load(object sender, EventArgs e)
         {
             float precioMejoras = 0, precioFinal;
+            if(objCompra.Vehiculos.Categoria == null)
+            {
+                throw new ExcepcionVehiculoVacio();
+            }
             precioFinal = objCompra.Vehiculos.Categoria.DevolverPrecio(cotizacion);
             CultureInfo argentina = new CultureInfo("es-ar"); //formato moneda argentina para la grilla
             int n = dgvPrecio.Rows.Add(); //agrego 9 columnas
             dgvPrecio.Rows[n].Cells[0].Value = objCompra.Vehiculos.Modelo; //modelo
             dgvPrecio.Rows[n].Cells[1].Value = precioFinal.ToString("C", argentina); //precioVehiculo
-            //si el checkbox no estaba habilitado devolvia null, entonces muestro un 0. Si esta habilitado procedo a mostrar en grilla y acumular las mejoras (aplica a los if de abajo)
-            if (objCompra.Soft != null) 
+                                                                                        //si el checkbox no estaba habilitado devolvia null, entonces muestro un 0. Si esta habilitado procedo a mostrar en grilla y acumular las mejoras (aplica a los if de abajo)
+            if (objCompra.Soft != null)
             {
                 precioMejoras += objCompra.Soft.DevolverCosto(cotizacion);
                 dgvPrecio.Rows[n].Cells[2].Value = (objCompra.Soft.DevolverCosto(cotizacion)).ToString("C", argentina); //Actualizacion de Software
@@ -81,7 +86,7 @@ namespace Form_Automoviles
                 dgvPrecio.Rows[n].Cells[6].Value = 0;
             }
             dgvPrecio.Rows[n].Cells[7].Value = precioMejoras.ToString("C", argentina); //Total Mejoras
-            precioFinal += precioMejoras; 
+            precioFinal += precioMejoras;
             dgvPrecio.Rows[n].Cells[8].Value = precioFinal.ToString("C", argentina); //Precio Final
 
             int m = dgvCaracteristicas.Rows.Add(); //datagrid de caracteristicas con conversion local

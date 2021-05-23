@@ -12,5 +12,6 @@ namespace BLL_Automoviles
             set { _nombre = value; }
         }
         public abstract float DevolverPrecio(float _cotizacion);
+
     }
 }

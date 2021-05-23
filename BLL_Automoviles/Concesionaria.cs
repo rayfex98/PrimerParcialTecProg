@@ -68,7 +68,6 @@ namespace BLL_Automoviles
             string precio = string.Empty; //concatena los valores que se mostraran en el mensaje
             precioFinal = objCompra.Vehiculos.Categoria.DevolverPrecio(cotizacion); //devuelve el valor del vehiculo en la cotizacion ingresada
             precio = "PRECIO FINAL\n\nValor vehiculo: $" + objCompra.Vehiculos.Categoria.DevolverPrecio(cotizacion);
-
             if (objCompra.Soft != null) //si el checkbox no estaba habilitado devolvia null, si esta habilitado procedo a acumular las mejoras
             {
                 precioMejoras += objCompra.Soft.DevolverCosto(cotizacion);

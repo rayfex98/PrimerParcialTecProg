@@ -2,6 +2,7 @@
 using System.Globalization;
 using System.Windows.Forms;
 using BLL_Automoviles;
+using BLL_Automoviles.Excepciones;
 
 namespace Form_Automoviles
 {
@@ -17,7 +18,6 @@ namespace Form_Automoviles
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            btnPrecio.Enabled = false; //para que no pueda calcular sin tener un vehiculo seleccionado
             cmboxAutomoviles.Enabled = false; //dehabilito combobox hasta que elija vehiculo
             cmboxCamionetas.Enabled = false;
             cmboxAutomoviles.DataSource = objConcesionaria.AutomovilesDisponibles(); //lista de autos
@@ -45,7 +45,6 @@ namespace Form_Automoviles
         private void btnPrecio_Click(object sender, EventArgs e)
         {
             float cotizador = 0; //luego levanto con tboxCotizador
-            bool flag = true; //solo si ingreso todos los datos, se calcula
             Compra objCompra = new(); //obtiene vehiculo y mejoras
             if (rbtnAutomovil.Checked) //asigno precio de automovil
             {
@@ -62,20 +61,19 @@ namespace Form_Automoviles
 
             try
             {
+                /*if (objvehiculo.Categoria == null)
+                {
+                    throw new ExcepcionVehiculoVacio();
+                }*/
+                if (String.IsNullOrEmpty(tboxCotizador.Text))
+                {
+                    throw new ExcepcionCotizacionVacia();
+                }
                 cotizador = (float.Parse(tboxCotizador.Text.Trim(), CultureInfo.InvariantCulture.NumberFormat)); //cultureinfo toma numeros con coma y punto, lo obtuve de un foro al buscar como levantar un float de precio
                 if (cotizador <= 0)
                 {
-                    MessageBox.Show("Ingrese un valor valido a la cotizacion! (numeros mayores a 0, con/sin punto decimal)");
-                    flag = false;
+                    throw new ExcepcionCotizacionInvalida();
                 }
-            }
-            catch (FormatException) //si cotizador queda vacio genera excepcion
-            {
-                MessageBox.Show("Recuerde completar el cuadro de cotizacion!");
-                flag = false;
-            }
-            if (flag)
-            {
                 objCompra.Alarmas = DevuelveAlarma(); //Mejora: si el combobox esta chequeado le asigna alarma a la compra, caso contrario devuelve null
                 objCompra.Balizas = DevuelveBaliza(); //Mejora
                 objCompra.Luces = DevuelveLuzNeon(); //Mejora
@@ -84,7 +82,18 @@ namespace Form_Automoviles
                 objCompra.Vehiculos = objvehiculo; //guarda vehiculo seleccionado
                 GrillaVehiculo detalle = new(objCompra, cotizador); //Form de datagridview
                 detalle.Show(); //muestra el form
-                //MessageBox.Show(Concesionaria.CalcularPrecio(objCompra, cotizador)); //muestra detalle del precio con una ventana
+            }
+            catch (ExcepcionCotizacionVacia ex) //si cotizador queda vacio, genera excepcion
+            {
+                MessageBox.Show(ex.Descripcion);
+            }
+            catch(ExcepcionCotizacionInvalida ex) //si numero es 0 o menos, genera excepcion
+            {
+                MessageBox.Show(ex.Descripcion);
+            }
+            catch (ExcepcionVehiculoVacio ex) //Vehiculo sin categoria
+            {
+                MessageBox.Show(ex.Descripcion);
             }
         }
         private Alarma DevuelveAlarma()
@@ -149,7 +158,6 @@ namespace Form_Automoviles
                 cmboxAutomoviles.Enabled = true;
                 cmboxCamionetas.Enabled = false;
             }
-            if(!btnPrecio.Enabled) btnPrecio.Enabled = true;
         }
         private void rbtnCamioneta_CheckedChanged(object sender, EventArgs e) //roundbotton switchea entre la habilitacion de combobox auto/camioneta y habilita el boton para calcular precio
         {
@@ -158,7 +166,6 @@ namespace Form_Automoviles
                 cmboxCamionetas.Enabled = true;
                 cmboxAutomoviles.Enabled = false;
             }
-            if(!btnPrecio.Enabled) btnPrecio.Enabled = true;
         }
     }  
 }
