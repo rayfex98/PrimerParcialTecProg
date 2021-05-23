@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace BLL_Automoviles.Excepciones
+namespace Vehiculos.Excepciones
 {
     public class Excepciones : Exception
     {

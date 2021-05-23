@@ -1,5 +1,5 @@
 ﻿
-namespace Form_Automoviles
+namespace CapaPresentacion
 {
     partial class GrillaVehiculo
     {

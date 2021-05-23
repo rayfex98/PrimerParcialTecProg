@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Globalization;
 using System.Windows.Forms;
-using BLL_Automoviles;
-using BLL_Automoviles.Excepciones;
+using Vehiculos;
+using Vehiculos.Excepciones;
 
-namespace Form_Automoviles
+namespace CapaPresentacion
 {
     public partial class Form1 : Form
     {
@@ -44,7 +44,7 @@ namespace Form_Automoviles
 
         private void btnPrecio_Click(object sender, EventArgs e)
         {
-            float cotizador = 0; //luego levanto con tboxCotizador
+            float cotizador; //luego levanto con tboxCotizador
             Compra objCompra = new(); //instancio vehiculo y mejoras
             if (rbtnAutomovil.Checked) //asigno precio de automovil a vehiculo
             {

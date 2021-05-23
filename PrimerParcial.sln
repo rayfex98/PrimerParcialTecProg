@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31205.134
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BLL_Automoviles", "BLL_Automoviles\BLL_Automoviles.csproj", "{607E055A-699E-47B6-8FC8-470577A1C29A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vehiculos", "BLL_Automoviles\Vehiculos.csproj", "{607E055A-699E-47B6-8FC8-470577A1C29A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Form_Automoviles", "Form_Automoviles\Form_Automoviles.csproj", "{83308AA1-59E2-4DA6-995F-DDF07F97DDE5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CapaPresentacion", "Form_Automoviles\CapaPresentacion.csproj", "{83308AA1-59E2-4DA6-995F-DDF07F97DDE5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,10 +1,9 @@
 ﻿using System;
-using BLL_Automoviles;
-using BLL_Automoviles.Excepciones;
+using Vehiculos;
 using System.Windows.Forms;
 using System.Globalization;
 
-namespace Form_Automoviles
+namespace CapaPresentacion
 {
     public partial class GrillaVehiculo : Form
     {
@@ -21,7 +20,7 @@ namespace Form_Automoviles
         {
             float precioMejoras = 0, precioFinal;
             precioFinal = objCompra.Vehiculos.Categoria.DevolverPrecio(cotizacion);
-            CultureInfo argentina = new CultureInfo("es-ar"); //formato moneda argentina para la grilla
+            CultureInfo argentina = new("es-ar"); //formato moneda argentina para la grilla
             int n = dgvPrecio.Rows.Add();
             dgvPrecio.Rows[n].Cells[0].Value = objCompra.Vehiculos.Modelo; //modelo
             dgvPrecio.Rows[n].Cells[1].Value = precioFinal.ToString("C", argentina); //precioVehiculo

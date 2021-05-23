@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace BLL_Automoviles
+namespace Vehiculos
 {
     public class Concesionaria
     {
