@@ -95,6 +95,10 @@ namespace CapaPresentacion
             {
                 MessageBox.Show(ex.Descripcion);
             }
+            catch (FormatException)//En la entrega, me olvide contemplar las letras
+            {
+                MessageBox.Show("No se permiten letras, pruebe con numeros");
+            }
         }
         private Alarma DevuelveAlarma()
         {
